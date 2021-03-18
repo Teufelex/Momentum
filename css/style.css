@@ -1,0 +1,515 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    scrollbar-color: #1f1e1e #2b2b2b;
+    scrollbar-width: auto;
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 20px; 
+    background-color: #2b2b2b;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #1f1e1e;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background-size: cover;
+    background-color: #3b434c;
+    background-repeat: no-repeat;
+    background-position: left top;
+    color: white;
+    transition: background-image 1s ease-in-out;
+  }
+
+  .overlay {
+    position: fixed;
+    left: 0;
+    height: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .disabled_block {
+    pointer-events: none;
+  }
+  
+  .time {
+    font-size: 8rem;
+    width: 27rem;
+    display: flex;
+  }
+
+  .week { 
+    font-size: 1.7rem;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 3rem;
+    justify-content: center;
+  }
+  
+  h2 {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+
+  .focus {
+    height: 2rem;
+  }
+
+  .focused {
+    min-width: 3rem;
+    outline: none;
+    border-bottom: 1px solid;
+  }
+
+  .named {
+    min-width: 3rem;
+    margin-left: 0.5rem;
+    outline: none;
+    border-bottom: 1px solid;
+  }
+
+  .name {
+    margin-left: 0.5rem;
+    min-width: 3rem;
+  }
+
+  .quote__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 10px;
+    right: auto;
+  }
+
+  .quote figcaption {
+    text-align: right;
+  }
+
+  .btn {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background-color: #353535;
+    background-image: url("../assets/sinchronize-512.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 10px;
+    border: none;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .btn:hover {
+    filter: grayscale(.2);
+  }
+
+  .btn:active,
+  .btn:focus {
+    outline: 0;
+  }
+
+  .btn:active{
+    transform: scale(1.02)
+  }
+
+  .weather__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather_temp {
+    display: flex;
+  }
+
+  .weather_speed {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .city {
+    height: 1.5rem;
+  }
+
+  .owf {
+    font-size: 4rem;
+  }
+
+  .btn-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+  }
+
+  .btn__wallpaper {
+    background-color: #353535;
+    height: 3rem;
+    width: 3rem;
+    margin: 10px;
+    border: none;
+    border-radius: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    padding: 10px 8px;
+    z-index: 1;
+  } 
+
+  .btn__wallpaper:active,
+  .btn__wallpaper:focus,
+  .btn__wallpaper {
+    outline: none;
+  }
+
+  .btn__wallpaper--decoration {
+    border: 2px solid #ffffffd7;
+    background-color: #353535;
+    height: 0.8rem;
+    width: 0.8rem;
+  }
+
+  .btn__wallpaper--random {
+    background-color: #353535;
+    background-image: url("../assets/sinchronize-512.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 3rem;
+    width: 3rem;
+    margin: 10px;
+    border: none;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .btn__wallpaper--random:active,
+  .btn__wallpaper--random:focus,
+  .btn__wallpaper--random {
+    outline: none;
+  }
+
+  .btn__wallpaper--next {
+    background-color: #353535;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 3.5rem;
+    color: white;
+    height: 3rem;
+    width: 3rem;
+    margin: 10px;
+    border: none;
+    border-radius: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding-bottom: 13px;
+  }
+
+  .btn__wallpaper--next:active,
+  .btn__wallpaper--next:focus,
+  .btn__wallpaper--next {
+    outline: none;
+  }
+
+  .wallpaper {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 230px;
+    background-color: rgb(65, 65, 65);
+    position: absolute;
+    left: 0;
+    overflow-y: scroll;
+  }
+
+  .wallpaper--hidden {
+    visibility: hidden;
+  }
+
+  .wallpaper_elem {
+    width: 90%;
+    margin-top: 0.7rem;
+    opacity: 0.5;
+  }
+
+  .wallpaper_elem:hover {
+    animation-duration: 0.5s;
+    animation-name: ImgList;
+    animation-fill-mode: forwards;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-name: ImgList;
+    -moz-animation-fill-mode: forwards;
+  }
+
+  .description {
+    color: #ffffffd7;
+  }
+
+  button:hover {
+    animation-duration: 5s;
+    animation-name: bt;
+    animation-iteration-count: infinite;
+    -moz-animation-duration: 5s;
+    -moz-animation-name: bt;
+    -moz-animation-iteration-count: infinite;
+    transform: scale(1.2, 1.2);
+    cursor: pointer;
+  }
+
+  .name:hover {
+    cursor: pointer;
+    animation-duration: 5s;
+    animation-name: clr;
+    animation-iteration-count: infinite;
+    -moz-animation-duration: 5s;
+    -moz-animation-name: bt;
+    -moz-animation-iteration-count: infinite;
+  }
+
+  .city:hover {
+    cursor: pointer;
+    animation-name: clr;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -moz-animation-duration: 5s;
+    -moz-animation-name: bt;
+    -moz-animation-iteration-count: infinite;
+  }
+
+  
+  .focus:hover {
+    cursor: pointer;
+    animation-name: clr;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -moz-animation-duration: 5s;
+    -moz-animation-name: bt;
+    -moz-animation-iteration-count: infinite;
+  }
+
+  @keyframes ImgList {
+    0% {
+      opacity: 0.5;
+    }
+
+    20% {
+      opacity: 0.6;
+    }
+
+    40% {
+      opacity: 0.7;
+    }
+
+    60% {
+      opacity: 0.8;
+    }
+
+    80% {
+      opacity: 0.9;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bt {
+    0% {
+      background-color: #4d4d4d;
+    }
+
+    20% {
+      background-color: #31d6adc5;
+    }
+
+    40% {
+      background-color: #585c8ac9;
+    }
+
+    60% {
+      background-color: #a0b84ace;
+    }
+
+    80% {
+      background-color: #a546a0b4;
+    }
+
+    100% {
+      background-color: #4d4d4d;
+    }
+  }
+
+  @keyframes clr {
+    0% {
+      color: #f8f8f8;
+    }
+
+    20% {
+      color: #850505c5;
+    }
+
+    40% {
+      color:  #f8f8f8;
+    }
+
+    60% {
+      color:  #850505c5;
+    }
+
+    80% {
+      color: #f8f8f8;
+    }
+
+    100% {
+      color:  #850505c5;
+    }
+  }
+  
+  @media (max-width: 770px) {
+    .time {
+      font-size: 6rem;
+      width: 20rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .weather__container {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .weather_speed {
+      order: -1;
+      align-items: flex-start;
+    }
+
+    .btn__wallpaper--decoration {
+      height: 0.3rem;
+      width: 0.3rem;
+      background-color: white;
+    }
+
+    .btn__wallpaper {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    .btn__wallpaper--random {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    .btn__wallpaper--next {
+      height: 2rem;
+      width: 2rem;
+      font-size: 2.5rem;
+      padding-bottom: 10px;
+    }
+
+    .space {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .space__weather {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .time {
+      width: 13rem;
+      font-size: 4rem;
+      margin-top: 6rem;
+    } 
+
+    .week {
+      font-size: 1.2rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0px;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    .space__weather {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+    }
+
+    .weather_temp {
+      font-size: 1rem;
+    }
+
+    .btn-wrap {
+      width: 100%;
+    }
+
+    .btn__wallpaper--random {
+      position: absolute;
+      right: 0;
+    }
+
+    .overlay {
+      justify-content: flex-start;
+    }
+
+    .quote__container {
+      position: static;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    .btn-wrap {
+      position: static;
+    }
+  }
+  

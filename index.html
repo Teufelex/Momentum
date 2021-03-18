@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/owfont-regular.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>momentum</title>
+</head>
+<body>
+  <div class="overlay">
+    <time class="time space"></time>
+    <time class="week space"></time>
+    <h1 class="space">
+      <span class="greeting"></span>
+      <span class="name" contenteditable="true"></span>
+    </h1>
+    <h2>What Is Your Focus For Today?</h2>
+    <h2 class="focus space" 
+        contenteditable="true">
+    </h2>
+    <div class="quote__container space">
+      <figure class="quote">
+        <blockquote></blockquote>
+        <figcaption></figcaption>
+      </figure>
+      <button class="btn" title="Other Quote"></button>
+    </div>
+    <div class="weather__container space__weather">
+      <div>
+        <div class="weather_temp">
+          <i class="weather-icon owf"></i>
+          <div class="temperature"></div>
+        </div>
+        <div class="city" contenteditable="true">Minsk</div>
+      </div>
+      <div class="weather_speed">
+        <div class="weather-description"></div>
+        <div class="wind_speed"></div>
+        <div class="humidity"></div>
+      </div>
+    </div>
+    <div class="btn-wrap">
+      <button class="btn__wallpaper" title="Menu">
+        <div class="btn__wallpaper--decoration" title="Menu"></div>
+        <div class="btn__wallpaper--decoration" title="Menu"></div>
+        <div class="btn__wallpaper--decoration" title="Menu"></div>
+        <div class="btn__wallpaper--decoration" title="Menu"></div>
+      </button>
+      <button class="btn__wallpaper--random" title="Random Image for this time"></button>
+      <button class="btn__wallpaper--next" title="Next Image">></button>
+    </div>
+    <div class="wallpaper"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
