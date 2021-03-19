@@ -492,5 +492,4 @@ getName();
 getFocus();
 getCity();
 OpCl();
-setInterval();
 randomWall();
